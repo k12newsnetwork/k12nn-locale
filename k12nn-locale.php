@@ -11,7 +11,6 @@ License: GPL2
 GitHub Plugin URI: https://github.com/k12newsnetwork/k12nn-locale
 */
 
-
 /*
 Plugin Name: Change locale at runtime
 Plugin URI: http://wordpress.stackexchange.com/questions/49451/change-locale-at-runtime
@@ -32,7 +31,7 @@ function k12nn_locale_func( $atts, $content = null ) {
 
     global $k12nn_locale;
 
-    $k12nn_locale = $a['locale']
+    $k12nn_locale = $a['locale'];
 
     add_filter('locale','k12nn_redefine_locale');
 
