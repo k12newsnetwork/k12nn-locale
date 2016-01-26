@@ -18,8 +18,30 @@ Plugin URI: http://wordpress.stackexchange.com/questions/49451/change-locale-at-
 */
 
 function k12nn_redefine_locale($locale) {
-   	$locale = 'es_ES';
+   	global $k12nn_locale;
+   	$locale = $k12nn_locale;
 
     return $locale;
 }
-add_filter('locale','k12nn_redefine_locale');  
+  
+
+function bartag_func( $atts, $content = null ) {
+    $a = shortcode_atts( array(
+        'locale' => 'en_US',
+    ), $atts );
+
+    global $k12nn_locale;
+
+    $k12nn_locale = $a['locale']
+
+    add_filter('locale','k12nn_redefine_locale');
+
+    $return = do_shortcode( $content );
+
+    remove_filter('locale','k12nn_redefine_locale');
+
+    return $return;
+}
+add_shortcode( 'bartag', 'bartag_func' );
+
+
