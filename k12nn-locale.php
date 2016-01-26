@@ -3,7 +3,7 @@
 Plugin Name: K12NN Locale
 Plugin URI: http://k12newsnetwork.com/
 Description: Switch locale with a shortcode.
-Version: 1.1.1
+Version: 1.2.1
 Author: Bradford Knowlton
 Author URI: http://bradknowlton.com
 License: GPL2
@@ -25,7 +25,7 @@ function k12nn_redefine_locale($locale) {
 }
   
 
-function bartag_func( $atts, $content = null ) {
+function k12nn_locale_func( $atts, $content = null ) {
     $a = shortcode_atts( array(
         'locale' => 'en_US',
     ), $atts );
@@ -42,6 +42,6 @@ function bartag_func( $atts, $content = null ) {
 
     return $return;
 }
-add_shortcode( 'bartag', 'bartag_func' );
+add_shortcode( 'k12nn_locale', 'k12nn_locale_func' );
 
 
