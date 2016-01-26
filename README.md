@@ -1,0 +1,1 @@
+# k12nn-locale
